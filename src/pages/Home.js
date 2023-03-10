@@ -8,7 +8,7 @@ const Home = () => {
   // const [todos, setTodos] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { todos, dispatch } = useTodoContext();
-  const { user } = useAuthContext();
+  const { user, dispatch: Authdispatch } = useAuthContext();
 
   useEffect(() => {
     const fetchTodo = async () => {
@@ -21,10 +21,10 @@ const Home = () => {
       if (response.ok) {
         const json = await response.json();
         dispatch({ type: "SET_TODOS", payload: json });
-      }
+      } else Authdispatch({ type: "LOGOUT" });
     };
     fetchTodo();
-  }, [dispatch, user]);
+  }, [dispatch, user, Authdispatch]);
   return (
     <div className="home">
       <div className="todos">
