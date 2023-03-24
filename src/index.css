@@ -152,6 +152,7 @@ form button{
   border-radius: 4px;
   cursor: pointer;
   border: 0;
+  margin-bottom: 8px;
   padding:8px;
   font-family: "Poppins";
 }
