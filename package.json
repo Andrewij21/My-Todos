@@ -1,5 +1,5 @@
 {
-  "proxy": "http://localhost:4000",
+  "proxy": "https://my-todos-api-production.up.railway.app/",
   "homepage": "http://Andrewij21.github.io/my-todos",
   "name": "frontend",
   "version": "0.1.0",

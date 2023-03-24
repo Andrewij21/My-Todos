@@ -15,7 +15,7 @@ const TodoForm = () => {
     const response = await fetch("/api/todos", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json; charset=utf-8",
+        "Content-Type": "application/json",
         Authorization: `Bearer ${user.token}`,
       },
       body: JSON.stringify(todo),
