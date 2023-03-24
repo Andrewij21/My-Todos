@@ -1,6 +1,6 @@
 {
   "proxy": "https://my-todos-api-production.up.railway.app/",
-  "homepage": "http://Andrewij21.github.io/my-todos",
+  "homepage": "",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
