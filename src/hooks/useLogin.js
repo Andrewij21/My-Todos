@@ -4,11 +4,11 @@ export const useLogin = () => {
   const { dispatch } = useAuthContext();
   const [isLoading, setIsLoading] = useState(null);
   const [error, setError] = useState(null);
-
+  const api_url = process.env.REACT_APP_API_KEY;
   const login = async ({ email, password }) => {
     setIsLoading(true);
     setError(null);
-    const response = await fetch("/api/users/login", {
+    const response = await fetch(`${api_url}/api/users/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

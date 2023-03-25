@@ -5,6 +5,8 @@ import { useAuthContext } from "../hooks/useAuthContext";
 const PopUpTodoForm = ({ setPopup, todo, getData }) => {
   const [title, setTitle] = useState(todo.title);
   const [body, setBody] = useState(todo.body);
+  const api_url = process.env.REACT_APP_API_KEY;
+
   // const [error, setError] = useState(null);
   // const { dispatch } = useTodoContext();
   const { user } = useAuthContext();
@@ -13,7 +15,7 @@ const PopUpTodoForm = ({ setPopup, todo, getData }) => {
     e.preventDefault();
     const data = { title, body };
     setPopup(false);
-    const response = await fetch("/api/todos/" + todo._id, {
+    const response = await fetch(`${api_url}/api/todos/` + todo._id, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

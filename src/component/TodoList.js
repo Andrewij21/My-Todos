@@ -6,8 +6,10 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow";
 const TodoList = ({ todo }) => {
   const { dispatch } = useTodoContext();
   const { user } = useAuthContext();
+  const api_url = process.env.REACT_APP_API_KEY;
+
   const handleClick = async () => {
-    const response = await fetch("/api/todos/" + todo._id, {
+    const response = await fetch(`${api_url}/api/todos/` + todo._id, {
       headers: {
         Authorization: `Bearer ${user.token}`,
       },

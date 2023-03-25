@@ -9,10 +9,11 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { todos, dispatch } = useTodoContext();
   const { user, dispatch: Authdispatch } = useAuthContext();
+  const api_url = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
     const fetchTodo = async () => {
-      const response = await fetch("/api/todos", {
+      const response = await fetch(`${api_url}/api/todos`, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
@@ -24,7 +25,7 @@ const Home = () => {
       } else Authdispatch({ type: "LOGOUT" });
     };
     fetchTodo();
-  }, [dispatch, user, Authdispatch]);
+  }, [dispatch, user, Authdispatch, api_url]);
   return (
     <div className="home">
       <div className="todos">

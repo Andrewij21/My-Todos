@@ -9,10 +9,11 @@ const TodoDetails = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { user } = useAuthContext();
   const { id } = useParams();
+  const api_url = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
     const fetchTodo = async () => {
-      const response = await fetch("/api/todos/" + id, {
+      const response = await fetch(`${api_url}/api/todos/` + id, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
@@ -24,7 +25,7 @@ const TodoDetails = () => {
       }
     };
     fetchTodo();
-  }, [user, id]);
+  }, [user, id, api_url]);
 
   const getData = (todo) => {
     setTodo(todo);
