@@ -8,11 +8,12 @@ const TodoForm = () => {
   const [error, setError] = useState(null);
   const { dispatch } = useTodoContext();
   const { user } = useAuthContext();
+  const api_url = process.env.REACT_APP_API_KEY;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const todo = { title, body };
-    const response = await fetch("/api/todos", {
+    const response = await fetch(`${api_url}/api/todos`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
